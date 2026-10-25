@@ -289,3 +289,8 @@ The main objective is to move beyond simply predicting **who will purchase** and
 ## Disclaimer
 
 The dataset used for this implementation is synthetic. The reported policy accuracy, treatment effects, and profit estimates are therefore validation results within the constructed simulation and should not be interpreted as real-world business results.
+
+## Current Project Status
+
+The project has been completed with the causal modeling pipeline, personalized pricing policy, model validation, and Streamlit dashboard. The final implementation includes customer-level pricing recommendations and business impact analysis based on estimated causal effects.
+
