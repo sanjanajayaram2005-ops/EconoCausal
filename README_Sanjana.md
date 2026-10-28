@@ -294,3 +294,26 @@ The dataset used for this implementation is synthetic. The reported policy accur
 
 The project has been completed with the causal modeling pipeline, personalized pricing policy, model validation, and Streamlit dashboard. The final implementation includes customer-level pricing recommendations and business impact analysis based on estimated causal effects.
 
+## Testing
+
+The project includes automated data validation tests to verify the quality and consistency of the causal retail dataset before model development.
+
+The validation checks include:
+
+- Dataset shape and expected number of columns
+- Required feature columns
+- Missing values
+- Age range
+- Loyalty score range
+- Product interest score range
+- Valid discount values
+- Valid purchase values
+
+To run the validation tests:
+
+```bash
+python -m pytest tests/test_project_validation.py
+```
+
+All validation checks should pass before proceeding with further model development or analysis.
+
