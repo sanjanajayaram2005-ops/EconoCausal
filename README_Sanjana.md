@@ -317,3 +317,18 @@ python -m pytest tests/test_project_validation.py
 
 All validation checks should pass before proceeding with further model development or analysis.
 
+## Project Workflow
+
+The EconoCausal project follows an end-to-end causal machine learning workflow:
+
+1. **Data Generation** – Created a synthetic retail dataset containing customer characteristics, purchase behavior, and discount information.
+2. **Data Validation** – Checked dataset structure, required columns, missing values, feature ranges, and valid treatment and outcome values.
+3. **Exploratory Data Analysis** – Analyzed customer features, discount distribution, purchase behavior, and relationships between variables.
+4. **Causal Modeling** – Applied Double Machine Learning using EconML to estimate the causal effect of different discount levels on individual customers.
+5. **Treatment Effect Analysis** – Estimated customer-level treatment effects for the available discount options.
+6. **Personalized Pricing Policy** – Selected the discount expected to provide the highest profit for each customer.
+7. **Policy Evaluation** – Compared the personalized policy with the existing discount strategy using purchase and profit estimates.
+8. **Visualization** – Used Streamlit and Plotly to present pricing recommendations, customer insights, and business impact.
+
+This workflow connects data preparation, causal inference, personalized decision-making, and business evaluation into a single pricing optimization pipeline.
+
