@@ -332,3 +332,11 @@ The EconoCausal project follows an end-to-end causal machine learning workflow:
 
 This workflow connects data preparation, causal inference, personalized decision-making, and business evaluation into a single pricing optimization pipeline.
 
+## Project Setup and Usage
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/sanjanajayaram2005-ops/EconoCausal.git
+cd EconoCausal
+
