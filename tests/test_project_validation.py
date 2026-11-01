@@ -65,3 +65,67 @@ def test_discount_values():
 def test_purchase_values():
     df = load_data()
     assert set(df["purchase"].unique()).issubset({0, 1})
+
+def test_policy_results_shape():
+    df = pd.read_csv("data/causal_policy_results.csv")
+    assert df.shape == (100000, 16)
+
+
+def test_policy_required_columns():
+    df = pd.read_csv("data/causal_policy_results.csv")
+
+    required_columns = [
+        "customer_id",
+        "p0_hat",
+        "p10_hat",
+        "p20_hat",
+        "profit_0_hat",
+        "profit_10_hat",
+        "profit_20_hat",
+        "recommended_discount",
+        "recommended_profit_hat",
+        "profit_gain_vs_no_discount",
+        "persuadable"
+    ]
+
+    for column in required_columns:
+        assert column in df.columns
+
+
+def test_predicted_purchase_probabilities():
+    df = pd.read_csv("data/causal_policy_results.csv")
+
+    for column in ["p0_hat", "p10_hat", "p20_hat"]:
+        assert df[column].between(0, 1).all()
+
+
+def test_recommended_discount_values():
+    df = pd.read_csv("data/causal_policy_results.csv")
+
+    assert df["recommended_discount"].isin([0, 10, 20]).all()
+
+
+def test_policy_results_no_missing_values():
+    df = pd.read_csv("data/causal_policy_results.csv")
+
+    columns_to_check = [
+        "customer_id",
+        "p0_hat",
+        "p10_hat",
+        "p20_hat",
+        "profit_0_hat",
+        "profit_10_hat",
+        "profit_20_hat",
+        "recommended_discount",
+        "recommended_profit_hat",
+        "profit_gain_vs_no_discount",
+        "persuadable"
+    ]
+
+    assert df[columns_to_check].notna().all().all()
+
+
+def test_profit_gain_is_non_negative():
+    df = pd.read_csv("data/causal_policy_results.csv")
+
+    assert (df["profit_gain_vs_no_discount"] >= 0).all()
